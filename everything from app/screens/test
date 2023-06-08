@@ -1,0 +1,69 @@
+  <View style={styles.topContainer}>
+        <Image
+          style={styles.productImage}
+          source={{ uri: StorageUrl(product.img) }}
+        />
+        <View style={styles.productDetailsContainer}>
+          {/* <Text style={styles.productPrice}>${product.price}</Text> */}
+        </View>
+      </View>
+      <View style={styles.centerContainer}>
+        <View style={styles.productNameWrapper}>
+          <View>
+            <Text style={styles.productCategory}>{product.category}</Text>
+            <Text style={styles.productName}>{product.name}</Text>
+          </View>
+          <View style={{ marginTop: 45 }}>
+            <ProductCounter setQuantity={setQuantity} quantity={quantity} />
+          </View>
+        </View>
+        <View style={styles.descriptionWrapper}>
+          <Text style={styles.description}>
+            Variety
+          </Text>
+          <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={relatedProducts}
+              horizontal={true}
+              keyExtractor={(item) => item.id}
+              renderItem={({ index, item }) => (
+                <TouchableOpacity
+                  style={styles.varietyItemWrapper}
+                ></TouchableOpacity>
+              )}
+            />
+        </View>
+        <View style={styles.relatedProductsWrapper}>
+          <Text style={styles.relatedProductsHeader}>Similar Products</Text>
+          <View>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={relatedProducts}
+              horizontal={true}
+              keyExtractor={(item) => item.id}
+              renderItem={({ index, item }) => (
+                <TouchableOpacity
+                  style={styles.relatedItemImgWrapper}
+                ></TouchableOpacity>
+              )}
+            />
+          </View>
+        </View>
+      </View>
+      <View style={styles.bottomContainer}>
+        <View style={styles.totalAmountWrapper}>
+          <Text style={styles.totalAmountHeader}>Total Price</Text>
+          <View style={styles.currencyWrapper}>
+            <Text style={styles.currency}>TSH </Text>
+            <Text style={styles.totalAmount}>{product.price}</Text>
+          </View>
+        </View>
+        <View style={styles.addToCartButtonWrapper}>
+          <TouchableOpacity
+            style={styles.addToCartButton}
+            onPress={() => onAddToCart(product, quantity)}
+          >
+            <Text style={styles.addToCartButtonText}>Add to Cart</Text>
+          </TouchableOpacity>
+        </View>
+      </View>

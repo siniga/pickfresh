@@ -1,0 +1,23 @@
+{
+    "invoice": [
+        {
+            "idate": "2020-12-16", 
+            "itime": "11:39:18", 
+            "custinvoiceno": "0043", 
+            "custidtype": "1", 
+            "custid": "000-000-000", 
+            "custname": "Mohammed", 
+            "username": "Ally", 
+            "invoiceDetails": [
+                {
+                    "description": "Container Lift On/off  Zero Rated", 
+                    "qty": "0", 
+                    "taxcode": "3", 
+                    "amt": 10
+                }
+            ]
+        }
+    ]
+}
+
+So we managed to send receipts to TRA but when we try to get response from them and send it to customer it fails. We can see receipts on dashboard but cant send text for confirmation. He is still working on it on his side trying to figure out where the problem is coming from.
